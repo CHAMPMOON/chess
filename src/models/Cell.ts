@@ -86,6 +86,8 @@ export class Cell {
             this.figure.moveFigure(target);
             target.setFigure(this.figure);
             this.figure = null;
+            return true;
         }
+        return false;
     }
 }
