@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import BoardComponent from './components/BoardComponent';
 import LostFigures from './components/LostFigures';
+import Timer from './components/Timer';
 import { Board } from './models/Board';
 import { Colors } from './models/Colors';
 import { Player } from './models/Player';
@@ -30,24 +31,32 @@ const App = () => {
   }
 
   return (
-    <div className='app'>
-      <div>
-        <LostFigures
-          title="Black figures"
-          figures={board.lostBlackFigures}
+    <div>
+      <div className='timer'>
+        <Timer
+          restart={restart}
+          currentPlayer={currentPlayer}
         />
       </div>
-      <BoardComponent
-        board={board}
-        setBoard={setBoard}
-        currentPlayer={currentPlayer}
-        swapPlayer={swapPlayer}
-      />
-      <div>
-        <LostFigures
-          title="White figures"
-          figures={board.lostWhiteFigures}
+      <div className='app'>
+        <div>
+          <LostFigures
+            title="Black figures"
+            figures={board.lostBlackFigures}
+          />
+        </div>
+        <BoardComponent
+          board={board}
+          setBoard={setBoard}
+          currentPlayer={currentPlayer}
+          swapPlayer={swapPlayer}
         />
+        <div>
+          <LostFigures
+            title="White figures"
+            figures={board.lostWhiteFigures}
+          />
+        </div>
       </div>
     </div>
   );

@@ -64,3 +64,9 @@
     width: 15%;
     height: 20%;
 }
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
