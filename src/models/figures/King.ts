@@ -10,4 +10,16 @@ export class King extends Figure {
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
         this.name = FigureNames.KING;
     }
+
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target))
+            return false;
+        const absX = Math.abs(this.cell.x - target.x);
+        const absY = Math.abs(this.cell.y - target.y);
+
+        if ((absX + absY <= 2) && (absX !== 2) && (absY !== 2)) {
+            return true;
+        }
+        return false;
+    }
 }
